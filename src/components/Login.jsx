@@ -13,6 +13,7 @@ const Login = () => {
     zodiacSign: '' 
   });
   const [error, setError] = useState('');
+  // let error = '';
   const navigate = useNavigate();
 
   const zodiacSigns = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'];

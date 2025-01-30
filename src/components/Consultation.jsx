@@ -32,7 +32,7 @@ const Consultation = () => {
       image: 'https://www.harikesanallur.com/images/about.jpg',
     },
     {
-      name: ' Mrs Mangkarasi',
+      name: 'Desa Mangaiyarkaras',
       specialty: 'Devotional Speaker and Female Astrologyer',
       experience: '12 years',
       image: 'https://scontent.fcjb3-3.fna.fbcdn.net/v/t1.6435-9/50622402_2209185656006184_1408525883249000448_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=zOrEeOeF5NAQ7kNvgFOGIWH&_nc_zt=23&_nc_ht=scontent.fcjb3-3.fna&_nc_gid=A5zKz-MHiUcFz4UpbzIQS4Y&oh=00_AYBK4GneHxBYUtLDCumT4NbFoRrsnOeyPNno1rnxK6KSdA&oe=67BB25BF',
@@ -108,7 +108,7 @@ const Consultation = () => {
 
       // Make API call to book appointment
       const response = await axios.post(
-        'http://localhost:5000/api/appointments',
+        '/api/appointments',
         appointmentData,
         {
           headers: {
