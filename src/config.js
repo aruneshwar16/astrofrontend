@@ -1,1 +1,1 @@
-export const API_BASE_URL = "http://localhost:5852/api";
+export const API_BASE_URL = "https://astrobackend-khuh.onrender.com/api";

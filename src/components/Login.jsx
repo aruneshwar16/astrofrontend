@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../config';
 import './Login.css';
 
 const Login = () => {
@@ -26,10 +27,9 @@ const Login = () => {
     setError('');
 
     try {
-      const baseURL = 'http://localhost:5000/api/auth';
       if (isLogin) {
         // Login request
-        const res = await axios.post(`${baseURL}/login`, {
+        const res = await axios.post(`${API_BASE_URL}/auth/login`, {
           username: formData.username,
           password: formData.password
         });
@@ -42,7 +42,7 @@ const Login = () => {
           setError('Email and Zodiac Sign are required for registration');
           return;
         }
-        await axios.post(`${baseURL}/signup`, formData);
+        await axios.post(`${API_BASE_URL}/auth/signup`, formData);
         setError('Registration successful! Please login.');
         setIsLogin(true);
         // Clear form after successful registration
