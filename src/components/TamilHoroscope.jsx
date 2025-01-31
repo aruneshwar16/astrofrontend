@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './TamilHoroscope.css';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL, API_CONFIG } from '../config';
 
 const zodiacSigns = [
   'மேஷம்', 'ரிஷபம்', 'மிதுனம்', 'கடகம்',
@@ -155,23 +156,24 @@ function TamilHoroscope() {
         return;
       }
 
-      const response = await fetch('/api/appointments/book', {
+      const response = await fetch(`${API_BASE_URL}/appointments`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          ...API_CONFIG.headers,
           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify({
           date: new Date(),
-          consultationType: 'Tamil Horoscope'
+          consultationType: 'Tamil Horoscope',
+          // ...data
         })
       });
-
-      const data = await response.json();
+      
+      const responseData = await response.json();
       if (response.ok) {
         alert('Appointment successfully booked!');
       } else {
-        alert(data.message || 'Error booking appointment');
+        alert(responseData.message || 'Error booking appointment');
       }
     } catch (error) {
       console.error('Error:', error);

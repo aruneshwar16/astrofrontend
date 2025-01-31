@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Consultation.css';
+import { API_BASE_URL, API_CONFIG } from '../config';
 
 const Consultation = () => {
   const [appointmentData, setAppointmentData] = useState({
@@ -108,12 +109,13 @@ const Consultation = () => {
 
       // Make API call to book appointment
       const response = await axios.post(
-        '/api/appointments',
+        `${API_BASE_URL}/appointments`,
         appointmentData,
         {
+          ...API_CONFIG,
           headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            ...API_CONFIG.headers,
+            'Authorization': `Bearer ${token}`
           }
         }
       );
